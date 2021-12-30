@@ -6,7 +6,7 @@
 	let posts = [];
 	onMount(async () => {
 		try{
-		const response = await fetch('http://localhost:8000/api/posts');
+		const response = await fetch('http://localhost:8899/api/posts');
 		const data = await response.json();
 		console.log(data.posts);
 		posts = data.posts;
