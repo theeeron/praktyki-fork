@@ -18,6 +18,7 @@ Aby uruchomić projekt:
     - `mariadb` (MySQL)
     - `node`
 1. Dla backendu wykonaj dodatkowe komendy w kontenerze `php`:
+    - `docker-compose exec php composer install` - instaluje potrzebne pakiety
     - `docker-compose exec php php artisan key:generate` - generuje unikalny klucz aplikacji
     - `docker-compose exec php php artisan migrate` - tworzy w bazie MySQL tabele
     - `docker-compose exec php php artisan db:seed` - dodaje do tabeli przykładowe rekordy
