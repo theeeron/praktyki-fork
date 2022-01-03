@@ -32,4 +32,6 @@ TODO - Kasper
 
 ## Szczegóły dotyczące backendu
 
-TODO - Kacper
+Dokumentacja Laravel: https://laravel.com/docs/8.x
+Biblioteka do autoryzacji: https://laravel.com/docs/8.x/sanctum
+
