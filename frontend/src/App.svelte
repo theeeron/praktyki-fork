@@ -3,13 +3,13 @@
 	import Card from './components/Card.svelte'
 
 	let name = ':)';
-	let posts = [];
+	let articles = [];
 	onMount(async () => {
 		try{
-		const response = await fetch('http://localhost:8899/api/posts');
+		const response = await fetch('http://localhost:8899/api/articles');
 		const data = await response.json();
-		console.log(data.posts);
-		posts = data.posts;
+		console.log(data.articles);
+		articles = data.articles;
 		} catch(error){
 			console.log(error)
 		}
@@ -22,7 +22,7 @@
 	<h1>Hello {name} !</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	
-	{#each posts as article}
+	{#each articles as article}
 	<div>
 		<Card>
 			<div class="title">
