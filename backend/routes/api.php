@@ -19,5 +19,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/articles', [ArticleController::class, 'articles']);
+Route::get('/articles', [ArticleController::class, 'listArticles']);
+
+Route::get('/articles/{id}', [ArticleController::class, 'readArticle']);
+
+Route::delete('/articles/{id}', [ArticleController::class, 'deleteArticle']);
+
+Route::post('/articles', [ArticleController::class, 'createArticle']);
 
