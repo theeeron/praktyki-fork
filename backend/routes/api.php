@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,13 @@ Route::get('/articles/{id}', [ArticleController::class, 'readArticle']);
 Route::delete('/articles/{id}', [ArticleController::class, 'deleteArticle']);
 
 Route::post('/articles', [ArticleController::class, 'createArticle']);
+
+
+Route::get('/orders', [OrderController::class, 'listOrders']);
+
+Route::get('/orders/{id}', [OrderController::class, 'readOrder']);
+
+Route::delete('orders/{id}', [OrderController::class, 'deleteOrder']);
+
+Route::post('orders', [OrderController::class, 'createOrder']);
 
