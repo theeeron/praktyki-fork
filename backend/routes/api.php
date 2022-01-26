@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,7 @@ Route::delete('orders/{id}', [OrderController::class, 'deleteOrder']);
 
 Route::post('orders', [OrderController::class, 'createOrder']);
 
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+//Route::post('/me', [AuthController::class, 'me']);
+Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
