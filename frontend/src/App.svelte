@@ -1,12 +1,13 @@
 <script>
 	import { onMount } from "svelte";
+import { add_resize_listener } from "svelte/internal";
 	import Card from './components/Card.svelte'
 	import { apiData, drinkNames} from './store.js';
 
 	let text1 = 'Dane Organizacji Narodów Zjednoczonych do spraw Wyżywienia i Rolnictwa (FAO), wskazują, że na świecie marnujemy rocznie ok. 1,3 miliarda ton jedzenia, co stanowi ok. 1/3 produkowanej żywności. W Polsce w koszu ląduje jej ok. 9 mln ton.'
 	let text2 = 'Masz za dużo jedzenia a nie chcesz go wyrzucać? Podaruj go innym i przyczyń się do lepszego jutra! Nie masz co dziś zjeść na obiad? Zarezerwuj darmowy posiłek i powstrzymaj marnowanie się jedzenia!'
 	let text3 = 'Jest to dziecinnie proste! Utwórz ogłoszenie o swoim jedzeniu, załącz zdjęcie, opis oraz adres odbioru, a druga osoba w przeciągu 15 minut odbierze to, na co nie masz już ochoty!Szukasz jedzenia? Wybierz interesujący Cię posiłek i odbierz go w przeciągu 15 minut. Smacznego!'
-	let name = 'FOODO';
+	let name = 'FOODOO';
 	let articles = [];
 	let orders = [];
 	let address = [];
@@ -76,17 +77,16 @@
 		<h1>
 			{name}
 		</h1>
-		</div>	
+		<button><a href="#">Dołącz do nas</a></button>	
+			
 		
-		<div class="flex">
-			<article>
-				<div class="title_left">
-					<h2>{text1}</h2>
-				<div>
-			</article>
 	
-			<article>
-				<div class="col">
+			
+				
+		
+	
+			
+				<div>
 					<a class="skiplink" href="#map">Go to map</a>
 							<div id="map" class="map" tabindex="0"></div>
 							<div id="popup" class="ol-popup">
@@ -95,33 +95,36 @@
 							<button id="zoom-out">Oddal</button>
 							<button id="zoom-in">Przybliż</button>
 							<script src="main.js"></script>
-
 				</div>
-			</article>
-	
-			<article>
-				<div class="title_right">
+				
+			<Card>
+			<div>
+				<h2>{text1}</h2>
+			<div>
+			</Card>
+			
+			<Card>
+				<div>
 					<h3>{text2}</h3>
 				<div>
-			</article>
-		</div>
+				</Card>
 	
-		<button>
-			test
-		</button>
+
 	
 	
 		<div>
-			<article>
-				<div class="title">
+			<Card>
+			
+				<div>
 					<h4>{text3}</h4>
 				<div>
-			</article>
+			
+		</Card>
 		</div>
 	
 	
 	
->  
+
 
 
 	
@@ -135,14 +138,6 @@
 	
 
 	
-	<div>
-		<Card>
-	<!--	 <h2>eo</h2> -->	
-			
-			<h2>Koordynaty: (work in progress)</h2>
-			
-		</Card>
-	</div> 
 	
 
 
@@ -192,6 +187,7 @@
        width: 100%; 
 	   height: 150px;
 	   background-color: #F26363;
+	   margin-bottom: 100px;
 	   
      }
 
@@ -245,7 +241,7 @@
 		width: 100%;
 	}
 	.col{
-		background-color: lightblue;
+		background-color: white;
 		margin-top: 150px;
         border-radius: 20px;
 		padding: 30px;
@@ -258,7 +254,7 @@
 	
 	.map {
         width: 100%;
-        height:400px;
+        height:600px;
       }
       a.skiplink {
         position: absolute;
@@ -277,6 +273,6 @@
         padding: 0.3em;
       }
       #map:focus {
-        outline: #4A74A8 solid 0.15em;
+        outline: #ffffff solid 0.15em;
       }
 </style>

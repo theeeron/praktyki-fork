@@ -51,6 +51,7 @@ services:
       NGINX_BACKEND_HOST: php
       NGINX_VHOST_PRESET: php
       NGINX_SERVER_ROOT: /var/www/html/public
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
     - ./backend:/var/www/html
 
