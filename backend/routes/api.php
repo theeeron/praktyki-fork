@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -34,11 +35,19 @@ Route::get('/orders', [OrderController::class, 'listOrders']);
 
 Route::get('/orders/{id}', [OrderController::class, 'readOrder']);
 
-Route::delete('orders/{id}', [OrderController::class, 'deleteOrder']);
+Route::delete('/orders/{id}', [OrderController::class, 'deleteOrder']);
 
-Route::post('orders', [OrderController::class, 'createOrder']);
+Route::post('/orders', [OrderController::class, 'createOrder']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 //Route::post('/me', [AuthController::class, 'me']);
 Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+
+Route::get('/users', [UserController::class, 'listUsers']);
+
+Route::get('/users/{id}', [UserController::class, 'readUser']);
+
+Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
+
+Route::post('/users', [UserController::class, 'createUser']);

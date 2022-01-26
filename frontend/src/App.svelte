@@ -56,7 +56,14 @@ import { add_resize_listener } from "svelte/internal";
 			console.log(error)
 		}
 	
-		
+		try{
+		const response = await fetch('http://localhost:8899/api/users');
+		const data = await response.json();
+		console.log(data.users);
+		articles = data.users;
+		} catch(error){
+			console.log(error)
+		}
 
 	
 	});
@@ -96,8 +103,38 @@ import { add_resize_listener } from "svelte/internal";
 							<button id="zoom-in">Przybliż</button>
 							<script src="main.js"></script>
 				</div>
-				
-			<Card>
+			
+							
+<div  class="popup" class:active={active}>
+	<div class="close-btn" on:click="{() => active = !active}">&times;</div>
+	<div class="form" on:submit|preventDefault={submit}>
+		<h2>Login</h2>
+		<div class="form-element">
+			<label for="name">imie</label>
+			<input bind:value={name} type="text" id="name" placeholder="Enter Name">
+			</div>
+			<div class="form-element">
+				<label for="email">Email</label>
+				<input bind:value={email} type="text" id="email" placeholder="Enter Email">
+				</div>
+				<div class="form-element">
+					<label for="password">haslo</label>
+					<input bind:value={password} type="password" id="password" placeholder="Enter Password">
+					</div>
+					<div class="form-element">
+						<input type="checkbox" id="remember-me">
+							<label for="remember-me">zapamietaj mnie</label>
+						</div>
+						<div class="form-element">
+							<button on:click={submit} type="submit">zarejestruj</button>
+						</div>
+						<div class="form-element">
+							<a href="#">zapomniałeś hasła?</a>
+						</div>  
+
+			
+			
+				<Card>
 			<div>
 				<h2>{text1}</h2>
 			<div>
